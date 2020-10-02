@@ -1,0 +1,2706 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "\n",
+    "from tqdm import tqdm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# bash_file = open(\"bash_file.sh\",'w')\n",
+    "# input_folder = 'County_Data_Files2'\n",
+    "# output_folder = 'Results'\n",
+    "# judge_map_folder = 'Judges_Name_Map'\n",
+    "# gravity_map_location = 'offense_gravity_map.csv'\n",
+    "\n",
+    "input_folder = r\"D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\"\n",
+    "output_folder = r\"D:\\Acads\\ACLU\\AOPC_Statewide\\results\\County_Output_Files\"\n",
+    "judge_map_folder = r\"D:\\Acads\\ACLU\\AOPC_Statewide\\Git\\utils\\Judges_Name_Map\"\n",
+    "gravity_map_location = r\"D:/Acads/ACLU/AOPC_Statewide/Git/utils/offense_gravity_map.csv\"\n",
+    "\n",
+    "if not os.path.exists(output_folder):\n",
+    "      os.mkdir(output_folder)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Running through Jupyter"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  0%|                                                                                           | 0/66 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Adams\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  2%|█▎                                                                                 | 1/66 [00:13<15:08, 13.98s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Allegheny\n",
+      "Reading County data...\n",
+      "Current dataset has 260914 rows\n",
+      "7242 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 79.06%\n",
+      "After subsetting for unique OTN values, we have: 32290 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 206280\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(38, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  3%|██▌                                                                                | 2/66 [01:00<25:19, 23.75s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Armstrong\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Armstrong\n",
+      "Current dataset has 20494 rows\n",
+      "300 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 73.55%\n",
+      "After subsetting for unique OTN values, we have: 1852 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 15074\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(25, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  5%|███▊                                                                               | 3/66 [01:07<19:48, 18.86s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Beaver\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  6%|█████                                                                              | 4/66 [01:18<16:50, 16.29s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Bedford\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  8%|██████▎                                                                            | 5/66 [01:23<13:16, 13.05s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Berks\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Berks\n",
+      "Current dataset has 158234 rows\n",
+      "1852 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 79.24%\n",
+      "After subsetting for unique OTN values, we have: 12230 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 125389\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(33, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      "  9%|███████▌                                                                           | 6/66 [01:44<15:20, 15.35s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Blair\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Blair\n",
+      "Current dataset has 48013 rows\n",
+      "204 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 75.31%\n",
+      "After subsetting for unique OTN values, we have: 5007 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 36160\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(32, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 11%|████████▊                                                                          | 7/66 [01:53<13:06, 13.33s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Bradford\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Bradford\n",
+      "Current dataset has 18722 rows\n",
+      "283 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 76.08%\n",
+      "After subsetting for unique OTN values, we have: 1855 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 14243\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(23, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 12%|██████████                                                                         | 8/66 [01:58<10:40, 11.04s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Bucks\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Bucks\n",
+      "Current dataset has 121378 rows\n",
+      "3173 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 83.75%\n",
+      "After subsetting for unique OTN values, we have: 15511 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 101651\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(34, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 14%|███████████▎                                                                       | 9/66 [02:19<13:08, 13.84s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Butler\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Butler\n",
+      "Current dataset has 78394 rows\n",
+      "1287 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 46.42%\n",
+      "After subsetting for unique OTN values, we have: 5850 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 36388\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(28, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 15%|████████████▍                                                                     | 10/66 [02:30<12:15, 13.13s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Cambria\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 17%|█████████████▋                                                                    | 11/66 [02:40<11:09, 12.17s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Cameron\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 18%|██████████████▉                                                                   | 12/66 [02:44<08:45,  9.72s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Carbon\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 20%|████████████████▏                                                                 | 13/66 [02:57<09:29, 10.74s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Centre\n",
+      "Reading County data...\n",
+      "No name map found for D:\\Acads\\ACLU\\AOPC_Statewide\\CountyDatasets\\Centre\n",
+      "Current dataset has 43862 rows\n",
+      "200 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 73.24%\n",
+      "After subsetting for unique OTN values, we have: 3600 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 32123\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(27, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 21%|█████████████████▍                                                                | 14/66 [03:08<09:17, 10.72s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Chester\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 23%|██████████████████▋                                                               | 15/66 [03:36<13:29, 15.86s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Clarion\n",
+      "Reading County data...\n",
+      "Current dataset has 32902 rows\n",
+      "54 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 60.24%\n",
+      "After subsetting for unique OTN values, we have: 1245 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 19819\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(28, 3)\n",
+      "(13, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 24%|███████████████████▉                                                              | 16/66 [03:45<11:30, 13.80s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Clearfield\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 26%|█████████████████████                                                             | 17/66 [03:53<10:00, 12.25s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Clinton\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 27%|██████████████████████▎                                                           | 18/66 [03:59<08:19, 10.40s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Columbia\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 29%|███████████████████████▌                                                          | 19/66 [04:06<07:19,  9.35s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Crawford\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 30%|████████████████████████▊                                                         | 20/66 [04:13<06:39,  8.68s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Cumberland\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 32%|██████████████████████████                                                        | 21/66 [04:28<07:45, 10.35s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Dauphin\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 33%|███████████████████████████▎                                                      | 22/66 [04:56<11:38, 15.87s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Delaware\n",
+      "Reading County data...\n",
+      "Current dataset has 299916 rows\n",
+      "2460 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 75.19%\n",
+      "After subsetting for unique OTN values, we have: 17863 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 225521\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(35, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 35%|████████████████████████████▌                                                     | 23/66 [05:31<15:18, 21.35s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Elk\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 36%|█████████████████████████████▊                                                    | 24/66 [05:35<11:24, 16.29s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Erie\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 38%|███████████████████████████████                                                   | 25/66 [05:45<09:50, 14.39s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Fayette\n",
+      "Reading County data...\n",
+      "Current dataset has 85294 rows\n",
+      "640 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 80.01%\n",
+      "After subsetting for unique OTN values, we have: 5629 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 68241\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(29, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 39%|████████████████████████████████▎                                                 | 26/66 [06:01<09:55, 14.89s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Forest\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 41%|█████████████████████████████████▌                                                | 27/66 [06:05<07:29, 11.53s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Franklin\n",
+      "Reading County data...\n",
+      "Current dataset has 38340 rows\n",
+      "174 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 72.65%\n",
+      "After subsetting for unique OTN values, we have: 4768 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 27855\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(26, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 42%|██████████████████████████████████▊                                               | 28/66 [06:12<06:32, 10.32s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Fulton\n",
+      "Reading County data...\n",
+      "Current dataset has 5175 rows\n",
+      "15 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 66.88%\n",
+      "After subsetting for unique OTN values, we have: 422 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 3461\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(26, 3)\n",
+      "(14, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 44%|████████████████████████████████████                                              | 29/66 [06:16<05:03,  8.21s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Greene\n",
+      "Reading County data...\n",
+      "Current dataset has 10728 rows\n",
+      "53 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 66.58%\n",
+      "After subsetting for unique OTN values, we have: 884 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 7143\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(26, 3)\n",
+      "(12, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 45%|█████████████████████████████████████▎                                            | 30/66 [06:20<04:10,  6.96s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Huntingdon\n",
+      "Reading County data...\n",
+      "Current dataset has 16011 rows\n",
+      "203 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 75.85%\n",
+      "After subsetting for unique OTN values, we have: 1456 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 12144\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(26, 3)\n",
+      "(13, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 47%|██████████████████████████████████████▌                                           | 31/66 [06:25<03:46,  6.46s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Indiana\n",
+      "Reading County data...\n",
+      "Current dataset has 30488 rows\n",
+      "179 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 68.02%\n",
+      "After subsetting for unique OTN values, we have: 2534 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 20737\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(24, 3)\n",
+      "(13, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 48%|███████████████████████████████████████▊                                          | 32/66 [06:33<03:54,  6.90s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Jefferson\n",
+      "Reading County data...\n",
+      "Current dataset has 23591 rows\n",
+      "69 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 79.51%\n",
+      "After subsetting for unique OTN values, we have: 1206 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 18758\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(24, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 50%|█████████████████████████████████████████                                         | 33/66 [06:38<03:26,  6.27s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Juniata\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 52%|██████████████████████████████████████████▏                                       | 34/66 [06:41<02:54,  5.47s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lackawanna\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 53%|███████████████████████████████████████████▍                                      | 35/66 [06:52<03:40,  7.13s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lancaster\n",
+      "Reading County data...\n",
+      "Current dataset has 81647 rows\n",
+      "1509 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 77.11%\n",
+      "After subsetting for unique OTN values, we have: 13453 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 62956\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(34, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 55%|████████████████████████████████████████████▋                                     | 36/66 [07:11<05:21, 10.71s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lawrence\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 56%|█████████████████████████████████████████████▉                                    | 37/66 [07:17<04:28,  9.27s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lebanon\n",
+      "Reading County data...\n",
+      "Current dataset has 70405 rows\n",
+      "2118 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 76.66%\n",
+      "After subsetting for unique OTN values, we have: 5487 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 53974\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(27, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 58%|███████████████████████████████████████████████▏                                  | 38/66 [07:28<04:30,  9.65s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lehigh\n",
+      "Reading County data...\n",
+      "Current dataset has 194185 rows\n",
+      "4217 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 75.46%\n",
+      "After subsetting for unique OTN values, we have: 13069 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 146529\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(31, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 59%|████████████████████████████████████████████████▍                                 | 39/66 [07:48<05:47, 12.87s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Luzerne\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 61%|█████████████████████████████████████████████████▋                                | 40/66 [08:03<05:53, 13.60s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Lycoming\n",
+      "Reading County data...\n",
+      "Current dataset has 55550 rows\n",
+      "876 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 80.50%\n",
+      "After subsetting for unique OTN values, we have: 4524 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 44718\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(27, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 62%|██████████████████████████████████████████████████▉                               | 41/66 [08:13<05:07, 12.32s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on McKean\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 64%|████████████████████████████████████████████████████▏                             | 42/66 [08:18<04:05, 10.23s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Mercer\n",
+      "Reading County data...\n",
+      "Current dataset has 61403 rows\n",
+      "640 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 82.21%\n",
+      "After subsetting for unique OTN values, we have: 4656 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 50480\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(25, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 65%|█████████████████████████████████████████████████████▍                            | 43/66 [08:30<04:04, 10.62s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Mifflin\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 67%|██████████████████████████████████████████████████████▋                           | 44/66 [08:36<03:25,  9.35s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Monroe\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 68%|███████████████████████████████████████████████████████▉                          | 45/66 [08:50<03:46, 10.77s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Montgomery\n",
+      "Reading County data...\n",
+      "Current dataset has 524538 rows\n",
+      "3771 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 84.01%\n",
+      "After subsetting for unique OTN values, we have: 20404 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 440648\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(28, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 70%|█████████████████████████████████████████████████████████▏                        | 46/66 [09:42<07:42, 23.11s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Montour\n",
+      "Reading County data...\n",
+      "Current dataset has 2650 rows\n",
+      "18 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 79.06%\n",
+      "After subsetting for unique OTN values, we have: 287 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 2095\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(20, 3)\n",
+      "(11, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 71%|██████████████████████████████████████████████████████████▍                       | 47/66 [09:47<05:34, 17.63s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Northampton\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 73%|███████████████████████████████████████████████████████████▋                      | 48/66 [10:00<04:54, 16.37s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Northumberland\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 74%|████████████████████████████████████████████████████████████▉                     | 49/66 [10:06<03:44, 13.18s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Perry\n",
+      "Reading County data...\n",
+      "Current dataset has 10134 rows\n",
+      "87 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 73.35%\n",
+      "After subsetting for unique OTN values, we have: 1081 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 7433\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(22, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 76%|██████████████████████████████████████████████████████████████                    | 50/66 [10:10<02:46, 10.39s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Pike\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 77%|███████████████████████████████████████████████████████████████▎                  | 51/66 [10:14<02:08,  8.54s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Potter\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 79%|████████████████████████████████████████████████████████████████▌                 | 52/66 [10:18<01:38,  7.06s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Schuylkill\n",
+      "Reading County data...\n",
+      "Current dataset has 67240 rows\n",
+      "685 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 80.76%\n",
+      "After subsetting for unique OTN values, we have: 5635 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 54301\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(31, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 80%|█████████████████████████████████████████████████████████████████▊                | 53/66 [10:28<01:44,  8.03s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Snyder\n",
+      "Reading County data...\n",
+      "Current dataset has 15012 rows\n",
+      "127 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 74.19%\n",
+      "After subsetting for unique OTN values, we have: 1067 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 11137\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(24, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 82%|███████████████████████████████████████████████████████████████████               | 54/66 [10:33<01:25,  7.15s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Somerset\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 83%|████████████████████████████████████████████████████████████████████▎             | 55/66 [10:40<01:16,  6.97s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Sullivan\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 85%|█████████████████████████████████████████████████████████████████████▌            | 56/66 [10:43<00:58,  5.81s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Susquehanna\n",
+      "Reading County data...\n",
+      "Current dataset has 16647 rows\n",
+      "172 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 80.72%\n",
+      "After subsetting for unique OTN values, we have: 796 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 13438\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(22, 3)\n",
+      "(12, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 86%|██████████████████████████████████████████████████████████████████████▊           | 57/66 [10:47<00:49,  5.45s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Tioga\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 88%|████████████████████████████████████████████████████████████████████████          | 58/66 [10:55<00:48,  6.06s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Union\n",
+      "Reading County data...\n",
+      "Current dataset has 8511 rows\n",
+      "65 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 76.76%\n",
+      "After subsetting for unique OTN values, we have: 761 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 6533\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(25, 3)\n",
+      "(13, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 89%|█████████████████████████████████████████████████████████████████████████▎        | 59/66 [11:00<00:39,  5.69s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Venango\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 91%|██████████████████████████████████████████████████████████████████████████▌       | 60/66 [11:06<00:35,  5.84s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Warren\n",
+      "Reading County data...\n",
+      "Current dataset has 13496 rows\n",
+      "59 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 71.63%\n",
+      "After subsetting for unique OTN values, we have: 847 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 9667\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(22, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 92%|███████████████████████████████████████████████████████████████████████████▊      | 61/66 [11:11<00:28,  5.64s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Washington\n",
+      "Reading County data...\n",
+      "Current dataset has 67939 rows\n",
+      "537 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 76.57%\n",
+      "After subsetting for unique OTN values, we have: 6829 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 52023\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(30, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 94%|█████████████████████████████████████████████████████████████████████████████     | 62/66 [11:23<00:30,  7.62s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Wayne\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 95%|██████████████████████████████████████████████████████████████████████████████▎   | 63/66 [11:29<00:20,  6.94s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Westmoreland\n",
+      "Reading County data...\n",
+      "Current dataset has 110891 rows\n",
+      "729 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 74.94%\n",
+      "After subsetting for unique OTN values, we have: 12578 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 83100\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(32, 3)\n",
+      "(14, 3)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 97%|███████████████████████████████████████████████████████████████████████████████▌  | 64/66 [11:44<00:19,  9.59s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on Wyoming\n",
+      "Reading County data...\n",
+      "Current dataset has 12250 rows\n",
+      "131 OTNs have more than 1 bail amount associated with them.\n",
+      "Writing top 7 OTN counts to otn_counts_df.csv\n",
+      "\n",
+      "Merging with the gravity map...\n",
+      "Match rate is 72.08%\n",
+      "After subsetting for unique OTN values, we have: 1079 rows\n",
+      "\n",
+      "Starting with Bail Amount analysis...\n",
+      "Writing Distribution of Bail Amounts to bail_quantile.csv\n",
+      "Writing Bail Amounts per month to bail_by_month.csv\n",
+      "Saved Average Bail curve as avg_bail_by_month.png\n",
+      "\n",
+      "Starting Bail Type analysis...\n",
+      "Writing distribution of Bail Types to bail_type.csv\n",
+      "Writing Average Bail Amount by Bail Type to avg_bail_by_type.csv\n",
+      "\n",
+      "Starting with Judges analysis...\n",
+      "Writing Judge analysis results to judge.csv\n",
+      "\n",
+      "Starting with Offense Type analysis...\n",
+      "Writing Distribution of Offenses and Average Bail to offense_distrib_count_bailamount.csv\n",
+      "Writing Average Bail Amounts by Offense Type and Bail Type to offense_bailtype_means.csv\n",
+      "Writing Number of cases by Offense Type and Bail Type to offense_bailtype_counts.csv\n",
+      "\n",
+      "Starting with Offense Score analysis...\n",
+      "Number of OTNs with Gravity score 8830\n",
+      "Writing Distribution of Cases and Average Bail by Offense Score to case_bail_by_grade.csv\n",
+      "Writing Average Bail by Bail Type and Offense Score to bail_by_type_grade.csv\n",
+      "Writing Number of Cases by Bail Type and Offense Score to case_by_type_grade.csv\n",
+      "\n",
+      "Starting with Gender analysis...\n",
+      "Writing Counts of Defendants by Gender to gender_counts.csv\n",
+      "Writing Avg. Bail Amount by Gender to gender_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Gender to gender_bailtype_counts.csv\n",
+      "Writing Avg. Bail Amount by Bail Type and Gender to gender_bailtype_mean.csv\n",
+      "Writing Differences in nature of crimes committed by the 2 genders to gender_crimes_comparison.csv\n",
+      "(23, 3)\n",
+      "(13, 2)\n",
+      "Writing Comparison of Avg Bail amount per offense gravity across Genders to gravity_gender_analysis.csv\n",
+      "Writing Proportion of Offense Gravoty by Gender to gravity_gender_distribution_by_perc.csv\n",
+      "\n",
+      "Starting with Race analysis...\n",
+      "Writing Counts of Defendants by Race to race_counts.csv\n",
+      "Writing Average Bail Amount by Race to race_bailamount_mean.csv\n",
+      "Writing Number of Cases by Bail Type and Race to race_bailtype_count.csv\n",
+      "Writing Average Bail by Bail Type and Race to race_bailtype_avg.csv\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\r",
+      " 98%|████████████████████████████████████████████████████████████████████████████████▊ | 65/66 [11:49<00:08,  8.08s/it]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Working on York\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████████████████████████████████████████████████████████████████████████████| 66/66 [12:13<00:00, 11.12s/it]\n"
+     ]
+    }
+   ],
+   "source": [
+    "for file in tqdm(os.listdir(input_folder)):\n",
+    "    if file == '.DS_Store':\n",
+    "        continue\n",
+    "    #Make sure input file does not have any extension\n",
+    "    input_path = os.path.join(input_folder,file)\n",
+    "    output_path = os.path.join(output_folder,file)\n",
+    "    name_map_path = os.path.join(judge_map_folder,file+\"_Judges_Name_Map.csv\")\n",
+    "    print(\"Working on {}\".format(file))\n",
+    "    !python run_county_analysis.py --inp $input_path --out $output_path --name_map $name_map_path --gravity_map $gravity_map_location\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Generating a bash script"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "for file in os.listdir(input_folder):\n",
+    "    if file == '.DS_Store':\n",
+    "        continue\n",
+    "    #Make sure input file does not have any extension\n",
+    "    input_path = os.path.join(input_folder,file)\n",
+    "    output_path = os.path.join(output_folder,file)\n",
+    "    name_map_path = os.path.join(judge_map_folder,file+\"_Judges_Name_Map.csv\")\n",
+    "    bash_file.write(\"python run_county_analysis.py --inp \\\"\"+input_path+\"\\\" --out \\\"\"+output_path)\n",
+    "    bash_file.write(\"\\\" --name_map \\\"\"+name_map_path +\"\\\" \\n\")\n",
+    "\n",
+    "bash_file.close()"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
