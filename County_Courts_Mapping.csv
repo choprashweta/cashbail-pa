@@ -1,0 +1,514 @@
+COUNTY,DISTRICT COURT,Judge,CountyCode,CourtCode_without_hyphen,CourtCode_without_leadingzero
+Adams,51-3-01,Matthew R. Harvey,1,51301,51301
+Adams,51-3-02,Daniel S. Bowman,1,51302,51302
+Adams,51-3-03,Tony J. Little,1,51303,51303
+Adams,51-3-04,Mark D. Beauchat,1,51304,51304
+Allegheny,05-02-01,Tara L. Smith,2,050201,50201
+Allegheny,05-02-02,Richard G. Opiela,2,050202,50202
+Allegheny,05-02-03,Daniel J. Konieczka,2,050203,50203
+Allegheny,05-02-04,Elissa M. Lang,2,050204,50204
+Allegheny,05-02-05,Carolyn S. Bengel,2,050205,50205
+Allegheny,05-02-06,Anthony L. DeLuca,2,050206,50206
+Allegheny,05-02-07,Jeffrey L. Herbst,2,050207,50207
+Allegheny,05-02-08,Thomas P. Caulfield,2,050208,50208
+Allegheny,05-02-10,Kim M. Hoots,2,050210,50210
+Allegheny,05-02-11,Roxanne S. Eichler,2,050211,50211
+Allegheny,05-02-12,William K. Wagner,2,050212,50212
+Allegheny,05-02-13,Eugene F. Riazzi,2,050213,50213
+Allegheny,05-02-14,Richard D. Olasz,2,050214,50214
+Allegheny,05-02-15,Thomas R. Torkowsky,2,050215,50215
+Allegheny,05-02-16,Michael W. Thatcher,2,050216,50216
+Allegheny,05-02-17,David J. Barton,2,050217,50217
+Allegheny,05-02-18,Ralph Kaiser,2,050218,50218
+Allegheny,05-02-19,Blaise P. Larotonda,2,050219,50219
+Allegheny,05-02-20,Ronald A. Arnoni,2,050220,50220
+Allegheny,05-02-21,Maureen McGraw-Desmet,2,050221,50221
+Allegheny,05-02-22,Craig C. Stephens,2,050222,50222
+Allegheny,05-02-23,John P. Kobistek,2,050223,50223
+Allegheny,05-02-25,(Vacant) Murray,2,050225,50225
+Allegheny,05-02-26,Beth S. Mills,2,050226,50226
+Allegheny,05-02-27,Eugene N. Ricciardi,2,050227,50227
+Allegheny,05-02-28,Oscar J. Petite,2,050228,50228
+Allegheny,05-02-31,Mikhail N. Pappas,2,050231,50231
+Allegheny,05-02-32,Linda I. Zucco,2,050232,50232
+Allegheny,05-02-35,Daniel E. Butler,2,050235,50235
+Allegheny,05-02-36,James J. Hanley,2,050236,50236
+Allegheny,05-02-38,James A. Motznik,2,050238,50238
+Allegheny,05-02-40,Derwin D. Rushing,2,050240,50240
+Allegheny,05-02-42,Robert P. Ravenstahl,2,050242,50242
+Allegheny,05-02-43,Carla M. Swearingen,2,050243,50243
+Allegheny,05-02-47,Scott H. Schricker,2,050247,50247
+Allegheny,05-03-02,Robert L. Ford,2,050302,50302
+Allegheny,05-03-03,David J. Sosovicka,2,050303,50303
+Allegheny,05-03-04,Thomas T. Swan,2,050304,50304
+Allegheny,05-03-05,Thomas G. Miller,2,050305,50305
+Allegheny,05-03-06,Bruce J. Boni,2,050306,50306
+Allegheny,05-03-09,Armand A. Martin,2,050309,50309
+Allegheny,05-03-10,Anthony M. Ceoffe,2,050310,50310
+Allegheny,05-03-12,Kevin E. Cooper,2,050312,50312
+Allegheny,05-03-13,Randy C. Martini,2,050313,50313
+Allegheny,05-03-14,Richard G. King,2,050314,50314
+Allegheny,05-03-17,Anthony W. Saveikis,2,050317,50317
+Armstrong,33-3-01,J. Gary DeComo,3,33301,33301
+Armstrong,33-3-02,James H. Owen,3,33302,33302
+Armstrong,33-3-03,James A. Andring,3,33303,33303
+Armstrong,33-3-04,Kevin L. McCausland,3,33304,33304
+Beaver,36-1-01,(Vacant) Hladio,4,36101,36101
+Beaver,36-1-02,Dirk A. Goodwald,4,36102,36102
+Beaver,36-2-01,Edward C. Howe,4,36201,36201
+Beaver,36-2-02,(Vacant) Finn,4,36202,36202
+Beaver,36-3-01,Dale F. Nicholson,4,36301,36301
+Beaver,36-3-02,C. Douglas Loughner,4,36302,36302
+Beaver,36-3-03,Joseph L. Schafer,4,36303,36303
+Beaver,36-3-04,Janet M. Swihart,4,36304,36304
+Bedford,57-3-01,Tonya M. Osman,5,57301,57301
+Bedford,57-3-02,H. Cyril Bingham,5,57302,57302
+Bedford,57-3-03,Brian K. Baker,5,57303,57303
+Bedford,57-3-04,Kathy S. Calhoun,5,57304,57304
+Berks,23-1-01,Ann L. Young,6,23101,23101
+Berks,23-1-02,Carissa L. Johnson,6,23102,23102
+Berks,23-1-03,Kyley L. Scott,6,23103,23103
+Berks,23-1-05,Alvin B. Robinson,6,23105,23105
+Berks,23-1-06,Dean R. Patton,6,23106,23106
+Berks,23-2-01,Stuart D. Kennedy,6,23201,23201
+Berks,23-2-02,Eric J. Taylor,6,23202,23202
+Berks,23-2-03,Sandra L. Fegley,6,23203,23203
+Berks,23-2-04,David L. Yoch,6,23204,23204
+Berks,23-3-01,David E. Glass,6,23301,23301
+Berks,23-3-02,Michael G. Hartman,6,23302,23302
+Berks,23-3-03,Steven M. Chieffo,6,23303,23303
+Berks,23-3-04,Gail M. Greth,6,23304,23304
+Berks,23-3-05,Brian K. Strand,6,23305,23305
+Berks,23-3-06,Kim L. Bagenstose,6,23306,23306
+Berks,23-3-07,Andrea J. Book,6,23307,23307
+Berks,23-3-09,Tonya A. Butler,6,23309,23309
+Blair,24-1-02,Benjamin F. Jones,7,24102,24102
+Blair,24-1-03,Daniel C. DeAntonio,7,24103,24103
+Blair,24-3-01,Fred B. Miller,7,24301,24301
+Blair,24-3-02,Steven D. Jackson,7,24302,24302
+Blair,24-3-03,Paula M. Aigner,7,24303,24303
+Blair,24-3-04,Andrew L. Blattenberger,7,24304,24304
+Bradford,42-3-01,Jonathan M. Wilcox,8,42301,42301
+Bradford,42-3-02,Larry J. Hurley,8,42302,42302
+Bradford,42-3-03,Todd A. Carr,8,42303,42303
+Bradford,42-3-04,Fred M. Wheaton,8,42304,42304
+Bucks,07-01-01,Michael W. Gallagher,9,070101,70101
+Bucks,07-01-02,Frank W. Peranteau,9,070102,70102
+Bucks,07-01-03,(Vacant) Kline,9,070103,70103
+Bucks,07-01-04,Robert L. Wagner,9,070104,70104
+Bucks,07-01-07,Daniel E. Baranoski,9,070107,70107
+Bucks,07-01-08,John J. Kelly,9,070108,70108
+Bucks,07-01-09,Daniel J. Finello,9,070109,70109
+Bucks,07-01-10,Jan Vislosky,9,070110,70110
+Bucks,07-01-11,(Vacant) Burns,9,070111,70111
+Bucks,07-01-12,Joseph P. Falcone,9,070112,70112
+Bucks,07-02-01,William J. Benz,9,070201,70201
+Bucks,07-02-02,Mark D. Douple,9,070202,70202
+Bucks,07-02-05,Lisa J. Gaier,9,070205,70205
+Bucks,07-02-07,Michael W. Petrucci,9,070207,70207
+Bucks,07-02-08,Regina M. Armitage-Smith,9,070208,70208
+Bucks,07-03-01,Maggie Snow,9,070301,70301
+Bucks,07-03-02,Jean Seaman,9,070302,70302
+Bucks,07-03-03,Thomas G. Gambardella,9,070303,70303
+Butler,50-1-01,Kevin P. O'Donnell,10,50101,50101
+Butler,50-3-01,William S. O'Donnell,10,50301,50301
+Butler,50-3-02,Lewis E. Stoughton,10,50302,50302
+Butler,50-3-03,Sue E. Haggerty,10,50303,50303
+Butler,50-3-04,David T. Kovach,10,50304,50304
+Butler,50-3-05,William T. Fullerton,10,50305,50305
+Butler,50-3-06,Wayne D. Seibel,10,50306,50306
+Cambria,47-1-01,Michael J. Musulin,11,47101,47101
+Cambria,47-1-02,Susan M. Gindlesperger,11,47102,47102
+Cambria,47-1-03,Kevin J. Price,11,47103,47103
+Cambria,47-3-01,Mary Ann Zanghi,11,47301,47301
+Cambria,47-3-03,John J. Prebish,11,47303,47303
+Cambria,47-3-05,Michael Zungali,11,47305,47305
+Cambria,47-3-06,Rick W. Varner,11,47306,47306
+Cambria,47-3-07,Frederick S. Creany,11,47307,47307
+Cameron,59-3-01,Barry D. Brown,12,59301,59301
+Carbon,56-3-01,Eric M. Schrantz,13,56301,56301
+Carbon,56-3-02,William J. Kissner,13,56302,56302
+Carbon,56-3-03,Casimir T. Kosciolek,13,56303,56303
+Carbon,56-3-04,Joseph D. Homanko,13,56304,56304
+Centre,49-1-01,Carmine W. Prestia,14,49101,49101
+Centre,49-2-01,Casey M. McClain,14,49201,49201
+Centre,49-3-02,Kelley S. Gillette-Walker,14,49302,49302
+Centre,49-3-03,Allen W. Sinclair,14,49303,49303
+Centre,49-3-04,Thomas N. Jordan,14,49304,49304
+Centre,49-3-05,Steven F. Lachman,14,49305,49305
+Chester,15-1-01,Bret M. Binder,15,15101,15101
+Chester,15-1-02,Thomas W. Tartaglio,15,15102,15102
+Chester,15-1-03,Gregory V. Hines,15,15103,15103
+Chester,15-1-04,Marian T. Vito,15,15104,15104
+Chester,15-1-05,Grover E. Koon,15,15105,15105
+Chester,15-2-01,(Vacant) Michaels,15,15201,15201
+Chester,15-2-03,William D. Kraut,15,15203,15203
+Chester,15-2-07,Lori Novak Donatelli,15,15207,15207
+Chester,15-3-01,John A. Hipple,15,15301,15301
+Chester,15-3-04,Albert M. Iacocca,15,15304,15304
+Chester,15-3-05,Scott A. Massey,15,15305,15305
+Chester,15-3-06,Michael J. Cabry,15,15306,15306
+Chester,15-3-07,Nancy A. Gill,15,15307,15307
+Chester,15-4-01,Analisa S. Sondergaard,15,15401,15401
+Chester,15-4-02,Jeffrey J. Valocchi,15,15402,15402
+Chester,15-4-03,John R. Bailey,15,15403,15403
+Chester,15-4-04,Matthew Seavey,15,15404,15404
+Clarion,18-3-01,Duane L. Quinn,16,18301,18301
+Clarion,18-3-02,Timothy P. Schill,16,18302,18302
+Clarion,18-3-03,Amy Long Turk,16,18303,18303
+Clarion,18-3-04,Jeffrey C. Miller,16,18304,18304
+Clearfield,46-3-01,Patrick N. Ford,17,46301,46301
+Clearfield,46-3-02,Joseph M. Morris,17,46302,46302
+Clearfield,46-3-03,Jerome M. Nevling,17,46303,46303
+Clearfield,46-3-04,James B. Glass,17,46304,46304
+Clinton,25-3-01,Keith G. Kibler,18,25301,25301
+Clinton,25-3-02,John W. Maggs,18,25302,25302
+Clinton,25-3-03,Frank P. Mills,18,25303,25303
+Columbia,26-2-01,Russell L. Lawton,19,26201,26201
+Columbia,26-3-01,Douglas D. Brewer,19,26301,26301
+Columbia,26-3-02,Richard W. Knecht,19,26302,26302
+Columbia,26-3-03,Craig W. Long,19,26303,26303
+Crawford,30-2-01,Samuel V. Pendolino,20,30201,30201
+Crawford,30-3-01,Rita J. Marwood,20,30301,30301
+Crawford,30-3-03,Lincoln S. Zilhaver,20,30303,30303
+Crawford,30-3-06,Amy L. Nicols,20,30306,30306
+Cumberland,09-01-01,Charles A. Clement,21,090101,90101
+Cumberland,09-01-02,Elizabeth S. Beckley,21,090102,90102
+Cumberland,09-01-03,Michael P. Sanderson,21,090103,90103
+Cumberland,09-02-01,Paul M. Fegley,21,090201,90201
+Cumberland,09-02-02,Jonathan R. Birbeck,21,090202,90202
+Cumberland,09-03-01,Harold Anthony Adams,21,090301,90301
+Cumberland,09-03-02,Vivian J. Cohick,21,090302,90302
+Cumberland,09-03-03,Susan K. Day,21,090303,90303
+Cumberland,09-03-04,Kathryn H. Silcox,21,090304,90304
+Cumberland,09-03-05,Mark W. Martin,21,090305,90305
+Dauphin,12-1-01,James A. Lenker,22,12101,12101
+Dauphin,12-1-02,Barbara Pianka,22,12102,12102
+Dauphin,12-1-04,David F. O'Leary,22,12104,12104
+Dauphin,12-1-05,Hanif L. Johnson,22,12105,12105
+Dauphin,12-1-06,Joseph S. Lindsey,22,12106,12106
+Dauphin,12-2-01,Michael John Smith,22,12201,12201
+Dauphin,12-2-02,Kenneth A. Lenker,22,12202,12202
+Dauphin,12-2-03,David H. Judy,22,12203,12203
+Dauphin,12-2-04,Sonya M. McKnight,22,12204,12204
+Dauphin,12-2-05,Paul T. Zozos,22,12205,12205
+Dauphin,12-3-01,Rebecca Jo Margerum,22,12301,12301
+Dauphin,12-3-02,Gregory D. Johnson,22,12302,12302
+Dauphin,12-3-03,William C. Wenner,22,12303,12303
+Dauphin,12-3-04,Dominic A. Pelino,22,12304,12304
+Dauphin,12-3-05,Lowell A. Witmer,22,12305,12305
+Delaware,32-1-20,Wilden H. Davis,23,32120,32120
+Delaware,32-1-21,Dawn L. Vann,23,32121,32121
+Delaware,32-1-22,Spencer B. Seaton,23,32122,32122
+Delaware,32-1-23,Gregory J. Loftus,23,32123,32123
+Delaware,32-1-24,Robert M. D'Agostino,23,32124,32124
+Delaware,32-1-25,Robert R. Burke,23,32125,32125
+Delaware,32-1-27,David Hamilton Lang,23,32127,32127
+Delaware,32-1-28,Deborah A. Krull,23,32128,32128
+Delaware,32-1-30,Vincent D. Gallagher,23,32130,32130
+Delaware,32-1-31,Philip S. Turner,23,32131,32131
+Delaware,32-1-32,Andrea E. Puppio,23,32132,32132
+Delaware,32-1-33,Harry J. Karapalides,23,32133,32133
+Delaware,32-1-34,Robert J. Radano,23,32134,32134
+Delaware,32-1-35,Ann Berardocco,23,32135,32135
+Delaware,32-1-36,David R. Griffin,23,32136,32136
+Delaware,32-2-37,Leonard V. Tenaglia,23,32237,32237
+Delaware,32-2-38,Diane M. Holefelder,23,32238,32238
+Delaware,32-2-39,(Vacant) McCray,23,32239,32239
+Delaware,32-2-40,Steven A. Sandone,23,32240,32240
+Delaware,32-2-42,Michael A. Burns,23,32242,32242
+Delaware,32-2-43,Leon Hunter,23,32243,32243
+Delaware,32-2-44,Jack D. Lippart,23,32244,32244
+Delaware,32-2-46,Andrew Goldberg,23,32246,32246
+Delaware,32-2-47,Will Keith Williams,23,32247,32247
+Delaware,32-2-48,Walter A. Strohl,23,32248,32248
+Delaware,32-2-49,Wendy B. Roberts,23,32249,32249
+Delaware,32-2-51,Christopher R. Mattox,23,32251,32251
+Delaware,32-2-52,Kelly A. Micozzie-Aguirre,23,32252,32252
+Delaware,32-2-53,Elisa C. Lacianca,23,32253,32253
+Delaware,32-2-54,James J. Merkins,23,32254,32254
+Elk,59-3-02,James L. Martin,24,59302,59302
+Elk,59-3-03,Mark S. Jacob,24,59303,59303
+Erie,06-01-01,Suzanne C. Mack,25,060101,60101
+Erie,06-01-02,(Vacant) Urbaniak,25,060102,60102
+Erie,06-01-03,Thomas Carney,25,060103,60103
+Erie,06-01-04,Paul A. Bizzarro,25,060104,60104
+Erie,06-01-05,Timothy S. Beveridge,25,060105,60105
+Erie,06-02-02,Laurie A. Weiss Mikielski,25,060202,60202
+Erie,06-02-04,Denise M. Buell,25,060204,60204
+Erie,06-03-01,Lisa R. Ferrick,25,060301,60301
+Erie,06-03-02,Scott B. Hammer,25,060302,60302
+Erie,06-03-03,Susan D. Strohmeyer,25,060303,60303
+Erie,06-03-05,Brian M. McGowan,25,060305,60305
+Erie,06-03-06,Denise M. Stuck-Lewis,25,060306,60306
+Erie,06-03-08,Christopher K. MacKendrick,25,060308,60308
+Fayette,14-1-01,Michael M. Metros,26,14101,14101
+Fayette,14-1-02,Ronald J. Haggerty,26,14102,14102
+Fayette,14-2-01,Jennifer L. Jeffries,26,14201,14201
+Fayette,14-2-02,Nathan A. Henning,26,14202,14202
+Fayette,14-2-03,Michael J. Defino,26,14203,14203
+Fayette,14-3-02,Daniel C. Shimshock,26,14302,14302
+Fayette,14-3-04,Richard A. Kasunic,26,14304,14304
+Forest,37-4-03,Daniel L. Miller,27,37403,37403
+Forest,37-4-93,Daniel L. Miller,27,37493,37493
+Franklin,39-2-01,Glenn K. Manns,28,39201,39201
+Franklin,39-3-02,Annie Ramona Gomez Shockey,28,39302,39302
+Franklin,39-3-03,David L. Plum,28,39303,39303
+Franklin,39-3-04,Todd R. Williams,28,39304,39304
+Franklin,39-3-05,Duane K. Cunningham,28,39305,39305
+Franklin,39-3-06,Jody C. Eyer,28,39306,39306
+Franklin,39-3-07,Kelly L. Rock,28,39307,39307
+Fulton,39-4-01,Devin C. Horne,29,39401,39401
+Fulton,39-4-02,Wendy Richards Mellott,29,39402,39402
+Fulton,39-4-03,Tamela M. Heming,29,39403,39403
+Greene,13-3-01,David C. Balint,30,13301,13301
+Greene,13-3-02,D. Glenn Bates,30,13302,13302
+Greene,13-3-03,Leroy W. Watson,30,13303,13303
+Huntingdon,20-3-01,Douglas L. Gummo,31,20301,20301
+Huntingdon,20-3-02,Rufus S. Brenneman,31,20302,20302
+Huntingdon,20-3-04,Lisa M. Covert,31,20304,20304
+Indiana,40-2-01,Guy B. Haberl,32,40201,40201
+Indiana,40-3-01,Christopher S. Welch,32,40301,40301
+Indiana,40-3-02,Susanne V. Steffee,32,40302,40302
+Indiana,40-3-03,Jennifer J. Rega,32,40303,40303
+Jefferson,54-3-01,Jacqueline J. Mizerock,33,54301,54301
+Jefferson,54-3-02,David B. Inzana,33,54302,54302
+Jefferson,54-3-03,Gregory M. Bazylak,33,54303,54303
+Juniata,41-3-01,Barbara M. Lyter,34,41301,41301
+Juniata,41-3-02,Jacqueline T. Leister,34,41302,41302
+Lackawanna,45-1-01,George E. Seig,35,45101,45101
+Lackawanna,45-1-02,Alyce M. Farrell,35,45102,45102
+Lackawanna,45-1-03,Joanne P. Corbett,35,45103,45103
+Lackawanna,45-1-05,Terrence V. Gallagher,35,45105,45105
+Lackawanna,45-1-06,Paul J. Ware,35,45106,45106
+Lackawanna,45-1-08,John P. Pesota,35,45108,45108
+Lackawanna,45-3-01,Paul Keeler,35,45301,45301
+Lackawanna,45-3-02,Kipp E. Adcock,35,45302,45302
+Lackawanna,45-3-03,Sean P. McGraw,35,45303,45303
+Lackawanna,45-3-04,Laura M. Turlip,35,45304,45304
+Lancaster,02-01-01,Adam J. Witkonis,36,020101,20101
+Lancaster,02-01-02,David P. Miller,36,020102,20102
+Lancaster,02-01-03,Miles K. Bixler,36,020103,20103
+Lancaster,02-02-01,Jodie E. Richardson,36,020201,20201
+Lancaster,02-02-02,Bruce A. Roth,36,020202,20202
+Lancaster,02-02-03,Mary Mongiovi Sponaugle,36,020203,20203
+Lancaster,02-02-04,(Vacant) Jimenez,36,020204,20204
+Lancaster,02-02-05,Brian E. Chudzik,36,020205,20205
+Lancaster,02-02-06,Joshua R. Keller,36,020206,20206
+Lancaster,02-02-07,Tony S. Russell,36,020207,20207
+Lancaster,02-02-08,Edward A. Tobin,36,020208,20208
+Lancaster,02-03-01,Scott E. Albert,36,020301,20301
+Lancaster,02-03-02,B. Denise Commins,36,020302,20302
+Lancaster,02-03-03,William E. Benner,36,020303,20303
+Lancaster,02-03-04,Stuart J. Mylin,36,020304,20304
+Lancaster,02-03-05,Raymond S. Sheller,36,020305,20305
+Lancaster,02-03-06,Jonathan W. Heisse,36,020306,20306
+Lancaster,02-03-07,Nancy G. Hamill,36,020307,20307
+Lancaster,02-03-09,(Vacant) Duncan,36,020309,20309
+Lawrence,53-1-01,Melissa A. Amodie,37,53101,53101
+Lawrence,53-3-01,Jerry G. Cartwright,37,53301,53301
+Lawrence,53-3-02,Jennifer L. Nicholson,37,53302,53302
+Lawrence,53-3-04,Scott A. McGrath,37,53304,53304
+Lebanon,52-1-01,Maria M. Dissinger,38,52101,52101
+Lebanon,52-2-01,Thomas M. Capello,38,52201,52201
+Lebanon,52-3-01,Anthony J. Verna,38,52301,52301
+Lebanon,52-3-03,Kim R. Wolfe,38,52303,52303
+Lebanon,52-3-04,John W. Ditzler,38,52304,52304
+Lebanon,52-3-05,Carl R. Garver,38,52305,52305
+Lehigh,31-1-01,Patricia M. Engler,39,31101,31101
+Lehigh,31-1-02,Rashid O. Santiago,39,31102,31102
+Lehigh,31-1-03,Ronald S. Manescu,39,31103,31103
+Lehigh,31-1-04,David M. Howells,39,31104,31104
+Lehigh,31-1-05,Michael D. D'Amore,39,31105,31105
+Lehigh,31-1-06,Wayne Maura,39,31106,31106
+Lehigh,31-1-07,(Vacant) Halal,39,31107,31107
+Lehigh,31-1-08,Michael J. Pochron,39,31108,31108
+Lehigh,31-2-01,Karen C. Devine,39,31201,31201
+Lehigh,31-2-02,Jacob E. Hammond,39,31202,31202
+Lehigh,31-2-03,Donna R. Butler,39,31203,31203
+Lehigh,31-3-01,Thomas C. Creighton,39,31301,31301
+Lehigh,31-3-02,Michael J. Faulkner,39,31302,31302
+Lehigh,31-3-03,Daniel C. Trexler,39,31303,31303
+Luzerne,11-1-01,Richard J. Cronauer,40,11101,11101
+Luzerne,11-1-02,Thomas F. Malloy,40,11102,11102
+Luzerne,11-1-03,Joseph D. Zola,40,11103,11103
+Luzerne,11-1-04,Alexandra C. Kokura Kravitz,40,11104,11104
+Luzerne,11-1-05,James J. Haggerty,40,11105,11105
+Luzerne,11-1-06,David A. Barilla,40,11106,11106
+Luzerne,11-2-01,Joseph J. Carmody,40,11201,11201
+Luzerne,11-2-03,Joseph A. Halesey,40,11203,11203
+Luzerne,11-3-01,Matthew C. Christopher,40,11301,11301
+Luzerne,11-3-02,Donald L. Whittaker,40,11302,11302
+Luzerne,11-3-03,Daniel O'Donnell,40,11303,11303
+Luzerne,11-3-04,James M. Dixon,40,11304,11304
+Luzerne,11-3-06,Ferris P. Webby,40,11306,11306
+Luzerne,11-3-07,Michael G. Dotzel,40,11307,11307
+Luzerne,11-3-08,Joseph D. Spagnuolo,40,11308,11308
+Luzerne,11-3-09,Brian J. Tupper,40,11309,11309
+Lycoming,29-1-01,Christian D. Frey,41,29101,29101
+Lycoming,29-1-02,(Vacant) Page,41,29102,29102
+Lycoming,29-3-01,Jerry C. Lepley,41,29301,29301
+Lycoming,29-3-02,Gary A. Whiteman,41,29302,29302
+Lycoming,29-3-03,Jon E. Kemp,41,29303,29303
+Lycoming,29-3-04,William C. Solomon,41,29304,29304
+McKean,48-1-01,Dominic A. Cercone,42,48101,48101
+McKean,48-3-02,William K. Todd,42,48302,48302
+McKean,48-3-03,Richard W. Luther,42,48303,48303
+McKean,48-3-04,David R. Engman,42,48304,48304
+Mercer,35-2-01,Dennis M. Songer,43,35201,35201
+Mercer,35-2-02,Mary A. Odem,43,35202,35202
+Mercer,35-3-01,Daniel W. Davis,43,35301,35301
+Mercer,35-3-02,D. Neil McEwen,43,35302,35302
+Mercer,35-3-03,Brian R. Arthur,43,35303,35303
+Mifflin,58-3-01,Jack E. Miller,44,58301,58301
+Mifflin,58-3-02,Jonathan W. Reed,44,58302,58302
+Mifflin,58-3-03,Kent A. Smith,44,58303,58303
+Monroe,43-2-01,Kristina Anzini,45,43201,43201
+Monroe,43-2-02,Michael R. Muth,45,43202,43202
+Monroe,43-3-01,Danielle N. Travagline,45,43301,43301
+Monroe,43-3-02,C. Daniel Higgins,45,43302,43302
+Monroe,43-3-03,Daniel J. Kresge,45,43303,43303
+Monroe,43-3-04,Colleen Mancuso,45,43304,43304
+Monroe,43-4-01,Brian R. Germano,45,43401,43401
+Monroe,43-4-02,Phillip R. Riley,45,43402,43402
+Monroe,43-4-04,Richard S. Claypool,45,43404,43404
+Montgomery,38-1-01,Marc A. Alfarano,46,38101,38101
+Montgomery,38-1-02,Elizabeth A. McHugh Casey,46,38102,38102
+Montgomery,38-1-03,Christopher J. Cerski,46,38103,38103
+Montgomery,38-1-04,John D. Kessler,46,38104,38104
+Montgomery,38-1-05,Juanita A. Price,46,38105,38105
+Montgomery,38-1-06,Henry J. Schireson,46,38106,38106
+Montgomery,38-1-07,Michael P. Quinn,46,38107,38107
+Montgomery,38-1-08,Katherine E. McGill Magid,46,38108,38108
+Montgomery,38-1-09,William I. Maruszczak,46,38109,38109
+Montgomery,38-1-10,Patricia A. Zaffarano,46,38110,38110
+Montgomery,38-1-11,Scott T. Palladino,46,38111,38111
+Montgomery,38-1-12,Edward C. Kropp,46,38112,38112
+Montgomery,38-1-13,Francis J. Bernhardt,46,38113,38113
+Montgomery,38-1-14,Paul N. Leo,46,38114,38114
+Montgomery,38-1-15,Francis J. Lawrence,46,38115,38115
+Montgomery,38-1-16,Margaret A. Hunsicker-Fleischer,46,38116,38116
+Montgomery,38-1-18,Andrea D. Duffy,46,38118,38118
+Montgomery,38-1-19,Richard H. Welsh,46,38119,38119
+Montgomery,38-1-20,Cathleen Kelly Rebar,46,38120,38120
+Montgomery,38-1-21,Suzan Leonard,46,38121,38121
+Montgomery,38-1-22,Harry J. Nesbitt,46,38122,38122
+Montgomery,38-1-23,Deborah A. Lukens,46,38123,38123
+Montgomery,38-1-24,Albert J. Augustine,46,38124,38124
+Montgomery,38-1-25,James P. Gallagher,46,38125,38125
+Montgomery,38-1-28,Edward J. Levine,46,38128,38128
+Montgomery,38-2-02,Maureen C. Coggins,46,38202,38202
+Montgomery,38-2-03,Maurice H. Saylor,46,38203,38203
+Montgomery,38-2-04,Karen Eisner Zucker,46,38204,38204
+Montgomery,38-2-08,Jay S. Friedenberg,46,38208,38208
+Montgomery,38-2-09,Gregory Scott,46,38209,38209
+Montour,26-3-04,Marvin K. Shrawder,47,26304,26304
+Northampton,03-01-04,Vivian I. Zumas,48,030104,30104
+Northampton,03-02-01,Roy A. Manwaring,48,030201,30201
+Northampton,03-02-03,Patricia C. Broscius,48,030203,30203
+Northampton,03-02-04,Alan Mege,48,030204,30204
+Northampton,03-02-05,Antonia Grifo,48,030205,30205
+Northampton,03-02-06,Daniel G. Corpora,48,030206,30206
+Northampton,03-02-08,John C. Capobianco,48,030208,30208
+Northampton,03-02-09,Jacqueline M. Taschner,48,030209,30209
+Northampton,03-02-10,Nancy Matos Gonzalez,48,030210,30210
+Northampton,03-02-11,Nicholas E. Englesson,48,030211,30211
+Northampton,03-02-12,Richard H. Yetter,48,030212,30212
+Northampton,03-03-01,Robert A. Hawke,48,030301,30301
+Northampton,03-03-02,Douglas H. Schlegel,48,030302,30302
+Northampton,03-03-03,Alicia R. Zito,48,030303,30303
+Northumberland,08-02-01,William C. Cole,49,080201,80201
+Northumberland,08-03-02,Michael I. Diehl,49,080302,80302
+Northumberland,08-03-03,John Gembic,49,080303,80303
+Northumberland,08-03-04,Michael P. Toomey,49,080304,80304
+Perry,41-3-03,Daniel R. L. McGuire,50,41303,41303
+Perry,41-3-04,Michael E. Schechterly,50,41304,41304
+Perry,41-3-05,Elizabeth R. Frownfelter,50,41305,41305
+Pike,60-3-01,Deborah Fischer,52,60301,60301
+Pike,60-3-02,Shannon L. Muir,52,60302,60302
+Pike,60-3-03,Alan B. Cooper,52,60303,60303
+Pike,60-3-04,Paul D. Menditto,52,60304,60304
+Potter,55-3-01,Annette L. Easton,53,55301,55301
+Potter,55-4-01,Kari A. McCleaft,53,55401,55401
+Potter,55-4-03,Christopher D. Kalacinski,53,55403,55403
+Schuylkill,21-2-01,Christina E. Hale,54,21201,21201
+Schuylkill,21-3-01,David A. Plachko,54,21301,21301
+Schuylkill,21-3-03,James R. Ferrier,54,21303,21303
+Schuylkill,21-3-04,David J. Rossi,54,21304,21304
+Schuylkill,21-3-05,Anthony J. Kilker,54,21305,21305
+Schuylkill,21-3-06,Stephen J. Bayer,54,21306,21306
+Schuylkill,21-3-07,James K. Reiley,54,21307,21307
+Snyder,17-3-03,John H. Reed,55,17303,17303
+Snyder,17-3-04,Lori R. Hackenberg,55,17304,17304
+Somerset,16-3-01,Susan Mankamyer,56,16301,16301
+Somerset,16-3-02,William E. Seger,56,16302,16302
+Somerset,16-3-03,Kenneth W. Johnson,56,16303,16303
+Somerset,16-3-05,Sandra L. Stevanus,56,16305,16305
+Somerset,16-3-06,Douglas McCall Bell,56,16306,16306
+Sullivan,44-3-03,Jennifer Y. Vandine,57,44303,44303
+Susquehanna,34-3-01,Jeffrey L. Hollister,58,34301,34301
+Susquehanna,34-3-02,Jodi L. Cordner,58,34302,34302
+Susquehanna,34-3-03,Suzanne M. Brainard,58,34303,34303
+Tioga,04-03-01,James R. Edgcomb,59,040301,40301
+Tioga,04-03-02,Robert L. Repard,59,040302,40302
+Tioga,04-03-03,James E. Carlson,59,040303,40303
+Union,17-3-01,(Vacant) Armbruster,60,17301,17301
+Union,17-3-02,Jeffrey L. Mensch,60,17302,17302
+Venango,28-3-01,Andrew F. Fish,61,28301,28301
+Venango,28-3-03,Matthew T. Kirtland,61,28303,28303
+Venango,28-3-04,Patrick E. Lowrey,61,28304,28304
+Warren,37-2-01,Raymond F. Zydonik,62,37201,37201
+Warren,37-3-01,Laura S. Bauer,62,37301,37301
+Warren,37-4-01,Todd A. Woodin,62,37401,37401
+Washington,27-1-01,Robert W. Redlinger,63,27101,27101
+Washington,27-1-02,Mark A. Wilson,63,27102,27102
+Washington,27-1-03,Larry W. Hopkins,63,27103,27103
+Washington,27-2-01,David W. Mark,63,27201,27201
+Washington,27-3-01,Jesse D. Pettit,63,27301,27301
+Washington,27-3-02,Curtis L. Thompson,63,27302,27302
+Washington,27-3-03,Joshua P. Kanalis,63,27303,27303
+Washington,27-3-05,(Vacant) Weller,63,27305,27305
+Washington,27-3-06,(Vacant) McDonald,63,27306,27306
+Washington,27-3-07,Gary H. Havelka,63,27307,27307
+Washington,27-3-10,Ethan T. Ward,63,27310,27310
+Wayne,22-3-01,Bonnie L. Carney,64,22301,22301
+Wayne,22-3-02,Linus H. Myers,64,22302,22302
+Wayne,22-3-04,Ronald J. Edwards,64,22304,22304
+Westmoreland,10-1-01,Joseph R. DeMarchis,65,10101,10101
+Westmoreland,10-1-03,(Vacant) Dalfonso,65,10103,10103
+Westmoreland,10-1-04,Cheryl J. Peck-Yakopec,65,10104,10104
+Westmoreland,10-1-05,Frank J. Pallone,65,10105,10105
+Westmoreland,10-2-01,Louis A. Bompiani,65,10201,10201
+Westmoreland,10-2-03,Helen M. Kistler,65,10203,10203
+Westmoreland,10-2-06,Charles M. Christner,65,10206,10206
+Westmoreland,10-2-08,Michael R. Mahady,65,10208,10208
+Westmoreland,10-2-09,Wayne B. Gongaware,65,10209,10209
+Westmoreland,10-2-10,Christiann O. Flanigan,65,10210,10210
+Westmoreland,10-3-01,Mark S. Mansour,65,10301,10301
+Westmoreland,10-3-02,Charles R. Conway,65,10302,10302
+Westmoreland,10-3-05,Jason Buczak,65,10305,10305
+Westmoreland,10-3-08,Mark J. Bilik,65,10308,10308
+Westmoreland,10-3-09,Denise Snyder Thiel,65,10309,10309
+Westmoreland,10-3-10,Charles D. Moore,65,10310,10310
+Westmoreland,10-3-11,(Vacant) Eckels,65,10311,10311
+Wyoming,44-3-01,David K. Plummer,66,44301,44301
+Wyoming,44-3-02,Carl W. Smith,66,44302,44302
+York,19-1-01,Linda Lou Williams,67,19101,19101
+York,19-1-02,James H. Morgan,67,19102,19102
+York,19-1-03,Dwayne Dubs,67,19103,19103
+York,19-1-04,Ronald J. Haskell,67,19104,19104
+York,19-1-05,Joel N. Toluba,67,19105,19105
+York,19-2-01,Barry L. Bloss,67,19201,19201
+York,19-2-02,Scott E. Laird,67,19202,19202
+York,19-2-03,Keith L. Albright,67,19203,19203
+York,19-2-04,Jeffrey L. Oberdorf,67,19204,19204
+York,19-2-05,Jennifer J. Patton Clancy,67,19205,19205
+York,19-3-01,John H. Fishel,67,19301,19301
+York,19-3-03,Laura S. Manifold,67,19303,19303
+York,19-3-04,Lindy L. Sweeney,67,19304,19304
+York,19-3-05,Jeffrey A. Sneeringer,67,19305,19305
+York,19-3-06,Thomas J. Reilly,67,19306,19306
+York,19-3-07,David C. Eshbach,67,19307,19307
+York,19-3-09,Scott J. Gross,67,19309,19309
+York,19-3-10,Richard T. Thomas,67,19310,19310
+York,19-3-11,Robert A. Eckenrode,67,19311,19311
